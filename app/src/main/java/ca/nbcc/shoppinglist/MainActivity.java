@@ -22,6 +22,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState != null) {
+            LinearLayout ll = findViewById(R.id.item_layout);
+            ll.removeAllViews();
+            List<ShoppingList.Item> newList = shoppingList.getList();
+            for(ShoppingList.Item item : newList){
+                TextView tv = new TextView(this);
+                tv.setText(item.name + " " + item.count.toString());
+                tv.setText(savedInstanceState
+                        .getString("reply_text"));
+                ll.addView(tv);
+            }
+        }
+
     }
 
     public void launchSecondActivity(View view) {
@@ -57,4 +70,21 @@ public class MainActivity extends AppCompatActivity {
             ll.addView(tv);
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        LinearLayout ll = findViewById(R.id.item_layout);
+        ll.removeAllViews();
+        List<ShoppingList.Item> newList = shoppingList.getList();
+        for(ShoppingList.Item item : newList){
+            TextView tv = new TextView(this);
+            tv.setText(item.name + " " + item.count.toString());
+            outState.putString("reply_text",
+                    tv.getText().toString());
+            ll.addView(tv);
+        }
+
+        }
+
 }

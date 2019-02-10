@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Shopping List</string>
+    <string name="app_name">List</string>
+    <string name="apple_name">Apple</string>
+    <string name="add_item">Add Item</string>
+    <string name="bananas">Bananas</string>
+    <string name="oranges">Oranges</string>
+    <string name="tomatoes">Tomatoes</string>
+    <string name="onions">Onions</string>
+    <string name="potatoes">Potatoes</string>
+    <string name="carrots">Carrots</string>
+    <string name="second_activity">Add Items to The List</string>
 </resources>
